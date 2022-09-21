@@ -23,4 +23,4 @@ if number > 5:
 if number == 0:
     print("Last digit of {} is {} and is 0".format(mark, number))
 if (number < 6) and (number != 0):
-    print("Last digit of {} is {} and is less than 6 and not 0".format(mark, number))
+    print(f"Last digit of {mark} is {number} and is less than 6 and not 0")
