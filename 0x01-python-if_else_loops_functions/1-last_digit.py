@@ -2,8 +2,11 @@
 import random
 number = random.randint(-10000, 10000)
 mark = number
+count = 0
+string = "Last digit of {} is {} and is less than 6 and not 0"
 if number < 0:
     number *= -1
+    count = 1
 if (number > 9) and (number < 100):
     number %= 10
 if (number > 99) and (number < 1000):
@@ -19,9 +22,14 @@ if (number > 9999) and (number < 100000):
     number %= 100
     number %= 10
 if number > 5:
+    if count == 1:
+        number *= -1
     print("Last digit of {} is {} and is greater than 5".format(mark, number))
-if number == 0:
+elif number == 0:
+    if count == 1:
+        number *= -1
     print("Last digit of {} is {} and is 0".format(mark, number))
-string = "Last digit of {} is {} and is less than 6 and not 0"
-if (number < 6) and (number != 0):
+else:
+    if count == 1:
+        number *= -1
     print(string.format(mark, number))
