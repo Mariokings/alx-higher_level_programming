@@ -21,15 +21,13 @@ if (number > 9999) and (number < 100000):
     number %= 1000
     number %= 100
     number %= 10
+if count == 1:
+    number *= -1
 if number > 5:
     if count == 1:
         number *= -1
     print("Last digit of {} is {} and is greater than 5".format(mark, number))
 elif number == 0:
-    if count == 1:
-        number *= -1
     print("Last digit of {} is {} and is 0".format(mark, number))
 else:
-    if count == 1:
-        number *= -1
     print(string.format(mark, number))
