@@ -4,5 +4,5 @@ def element_at(my_list, idx):
     mario = len(my_list) - 1
     if idx > mario:
         return
-    kc = my_list[idx]
+    kc = my_list.pop(idx)
     return kc
