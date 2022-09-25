@@ -1,11 +1,9 @@
+#!/usr/bin/python3
 def element_at(my_list, idx):
     if idx < 0:
-        return (None)
-
+        return
     mario = len(my_list) - 1
-
     if idx > mario:
-        return (None)
-
+        return
     kc = my_list.pop(idx)
-    return (kc)
+    return
