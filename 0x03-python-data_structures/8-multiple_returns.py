@@ -4,6 +4,6 @@ def multiple_returns(sentence):
     b = sentence[0]
 
     if a == 0:
-        return a, None
+        return (a, None)
     else:
-        return a, b
+        return (a, b)
