@@ -31,6 +31,8 @@ int is_palindrome(listint_t **head)
 	{
 		if (mario->n == man->n)
 		{
+			if (mario->next == NULL)
+				break;
 			mario = mario->next;
 			man = man->next;
 			continue;
@@ -41,7 +43,7 @@ int is_palindrome(listint_t **head)
 			break;
 		}
 	}
-	if (count)
+	if (mario->n == man->n)
 		return (count);
 	else
 		return (0);
