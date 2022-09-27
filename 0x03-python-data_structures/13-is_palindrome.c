@@ -16,8 +16,6 @@ int is_palindrome(listint_t **head)
 	if (*head == NULL)
 		return (1);
 	mario = kc = *head;
-	//if (mario == NULL && kc == NULL)
-	//	return (1);
 	temp = man = NULL;
 
 	while (kc != NULL)
