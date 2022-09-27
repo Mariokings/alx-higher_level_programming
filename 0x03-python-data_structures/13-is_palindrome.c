@@ -2,7 +2,7 @@
 
 /**
  * is_palindrome- to check if a linked list
- * reads the same backward as forward
+ * reads the same backward as forward(palirome)
  *
  * @head: pointer to the head of list
  *
