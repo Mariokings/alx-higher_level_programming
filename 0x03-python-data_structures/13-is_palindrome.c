@@ -10,12 +10,12 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *temp, *man, *kc, *mario;
+	listint_t *temp, *man, *kc;
 	int count = 1;
 
 	if (*head == NULL)
 		return (1);
-	mario = kc = *head;
+	kc = *head;
 	temp = man = NULL;
 
 	while (kc != NULL)
@@ -25,13 +25,13 @@ int is_palindrome(listint_t **head)
 		man = kc;
 		kc = temp;
 	}
-	while (mario != NULL)
+	while ((*head) != NULL)
 	{
-		if (mario->n == man->n)
+		if ((*head)->n == man->n)
 		{
-			if (mario->next == NULL)
+			if ((*head)->next == NULL)
 				break;
-			mario = mario->next;
+			*head = (*head)->next;
 			man = man->next;
 			continue;
 		}
@@ -41,7 +41,7 @@ int is_palindrome(listint_t **head)
 			break;
 		}
 	}
-	if (mario->n == man->n)
+	if ((*head)->n == man->n)
 		return (count);
 	else
 		return (0);
