@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if type(roman_string) is not str or roman_string is None:
+    if roman_string is None:
         return 0
     i, v, x, k, c, d, m = 1, 5, 10, 50, 100, 500, 1000
     count = mario = check = 0
