@@ -2,7 +2,13 @@
 def roman_to_int(roman_string):
     if roman_string is None:
         return 0
-    i,v,x,l,c,d,m = 1,5,10,50,100,500,1000
+    i = 1
+    v = 5
+    x = 10
+    k = 50
+    c = 100
+    d = 500
+    m = 1000
     count = mario = check = 0
     for q in roman_string:
         if q == "I":
@@ -12,7 +18,7 @@ def roman_to_int(roman_string):
         elif q == "X":
             num = x
         elif q == "L":
-            num = l
+            num = k
         elif q == "C":
             num = c
         elif q == "D":
