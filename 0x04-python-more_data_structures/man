@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+man = "IV"
+i,v,x,l,c,d,m = 1,5,10,50,100,500,1000
+for x in range(len(man)):
+    if man[x] = "I":
+        num = i
+    elif man[x] = "V":
+        num = v
+    elif man[x] = "X":
+        num = x
+    elif man[x] = "L":
+        num = l
+    elif man[x] = "C":
+        num = c
+    elif man[x] = "D":
+        num = d
+    else:
+        num = m
+
+    if man[x+1] = "I":
+        num1 = i
+    elif man[x+1] = "V":
+        num1 = v
+    elif man[x+1] = "X":
+        num1 = x
+    elif man[x+1] = "L":
+        num1 = l
+    elif man[x+1] = "C":
+        num1 = c
+    elif man[x+1] = "D":
+        num1 = d
+    else:
+        num1 = m
+
+    if num < num1:
+        sub = num1 - num
