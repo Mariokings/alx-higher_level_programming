@@ -3,6 +3,7 @@
 def safe_print_integer_err(value):
     try:
         print("{:d}".format(value))
+        return True
     except TypeError as ty:
         print("Exception: ", ty)
         return False
@@ -12,5 +13,3 @@ def safe_print_integer_err(value):
     except NameError as na:
         print("Exception: ", na)
         return False
-    else:
-        return True
