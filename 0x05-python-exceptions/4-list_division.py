@@ -5,9 +5,11 @@ def list_division(my_list_1, my_list_2, list_length):
     for x in range(list_length):
         try:
             result = my_list_1[x] / my_list_2[x]
-        except (TypeError, ValueError):
+        except TypeError:
             result = 0
             print("wrong type")
+        except ValueError:
+            result = 0
         except ZeroDivisionError:
             result = 0
             print("division by 0")
