@@ -9,5 +9,8 @@ def safe_print_integer_err(value):
     except ValueError as va:
         print("Exception: ", va)
         return False
+    except NameError as na:
+        print("Exception: ", na)
+        return False
     else:
         return True
