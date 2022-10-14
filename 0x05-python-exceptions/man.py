@@ -1,12 +1,15 @@
 #!/usr/bin/python3
 
-def safe_print_list_integers(my_list=[], x=0):
-    count = 0
-    for y in range(x):
-        try:
-            print("{:d}".format(my_list[y]), end="")
-            count += 1
-        except (ValueError, TypeError):
-            continue
-    print()
-    return count
+def safe_print_integer_err(value):
+    try:
+        print("{:d}".format(value))
+        return True
+    except TypeError as ty:
+        print("Exception: ", ty)
+        return False
+    except ValueError as va:
+        print("Exception: ", va)
+        return False
+    except NameError as na:
+        print("Exception: ", na)
+        return False
