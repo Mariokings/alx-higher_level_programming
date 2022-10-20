@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/puthon3
 """Square class definition """
 
 
@@ -13,9 +13,12 @@ class Square:
             size (int): size of a side of the square
         Returns: None
         """
-        if type(size) is not int:
+        try:
+            assert type(size) == int
+        except AssertionError:
             raise TypeError("size must be an integer")
-        elif size < 0:
+        try:
+            assert size >= 0
+        except AssertionError:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+        self.__size = size
