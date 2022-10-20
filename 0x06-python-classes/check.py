@@ -13,12 +13,9 @@ class Square:
             size (int): size of a side of the square
         Returns: None
         """
-        try:
-            assert type(size) == int
-        except AssertionError:
+        if type(size) is not int:
             raise TypeError("size must be an integer")
-        try:
-            assert size >= 0
-        except AssertionError:
+        elif size < 0:
             raise ValueError("size must be >= 0")
-        self.__size = size
+        else:
+            self.__size = size
