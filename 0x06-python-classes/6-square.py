@@ -37,7 +37,7 @@ class Square:
         except AttributeError:
             raise TypeError("position must be a tuple of 2 positive integers")
         try:
-            assert len(value) == 2
+            assert len(position) == 2
         except AttributeError:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = position
