@@ -36,6 +36,10 @@ class Square:
             assert position[-1] >= 0
         except AttributeError:
             raise TypeError("position must be a tuple of 2 positive integers")
+        try:
+            assert len(value) == 2
+        except AttributeError:
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = position
 
     def area(self):
@@ -81,6 +85,10 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         try:
             assert value[0] >= 0 and type(value[-1]) == int and value[-1] >= 0
+        except AttributeError:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        try:
+            assert len(value) == 2
         except AttributeError:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
