@@ -24,6 +24,18 @@ class Square:
         except AssertionError:
             raise ValueError("size must be >= 0")
         self.__size = size
+        try:
+            assert type(position) == tuple and type(position[0]) == int
+        except AttributeError:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        try:
+            assert position[0] >= 0 and type(position[-1]) == int
+        except AttributeError:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        try:
+            assert position[-1] >= 0
+        except AttributeError:
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = position
 
     def area(self):
@@ -56,6 +68,7 @@ class Square:
                 for j in range(self.__size):
                     print("#", end="")
                 print()
+
     @property
     def position(self):
         return self.__position
@@ -63,7 +76,11 @@ class Square:
     @position.setter
     def position(self, value):
         try:
-            assert type(value) == tuple and type(value[0]) == int and value[0] >= 0 and type(value[-1]) == int and value[-1] >= 0
+            assert type(value) == tuple and type(value[0]) == int
+        except AttributeError:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        try:
+            assert value[0] >= 0 and type(value[-1]) == int and value[-1] >= 0
         except AttributeError:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
