@@ -56,16 +56,9 @@ class Square:
     @position.setter
     def position(self, value):
         """Get/set the current position of the square """
-        try:
-            assert type(value) == tuple and type(value[0]) == int
-        except AttributeError:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        try:
-            assert value[0] >= 0 and type(value[-1]) == int and value[-1] >= 0
-        except AttributeError:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        try:
-            assert len(value) == 2
-        except AttributeError:
+        if (not isinstance(value, tuple) or
+                len(value) != 2 or
+                not all(isinstance(num, int) for num in value) or
+                not all(num >= 0 for num in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
