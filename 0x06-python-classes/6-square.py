@@ -15,31 +15,7 @@ class Square:
             position (tuple): tuple of two positive integer
         Returns: current square area
         """
-        try:
-            assert type(size) == int
-        except AssertionError:
-            raise TypeError("size must be an integer")
-        try:
-            assert size >= 0
-        except AssertionError:
-            raise ValueError("size must be >= 0")
         self.size = size
-        try:
-            assert type(position) == tuple and type(position[0]) == int
-        except AttributeError:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        try:
-            assert position[0] >= 0 and type(position[-1]) == int
-        except AttributeError:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        try:
-            assert position[-1] >= 0
-        except AttributeError:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        try:
-            assert len(position) == 2
-        except AttributeError:
-            raise TypeError("position must be a tuple of 2 positive integers")
         self.position = position
 
     def area(self):
@@ -79,6 +55,7 @@ class Square:
 
     @position.setter
     def position(self, value):
+        """Get/set the current position of the square """
         try:
             assert type(value) == tuple and type(value[0]) == int
         except AttributeError:
