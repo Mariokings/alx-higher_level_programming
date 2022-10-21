@@ -23,7 +23,7 @@ class Square:
             assert size >= 0
         except AssertionError:
             raise ValueError("size must be >= 0")
-        self.__size = size
+        self.size = size
         try:
             assert type(position) == tuple and type(position[0]) == int
         except AttributeError:
@@ -40,7 +40,7 @@ class Square:
             assert len(position) == 2
         except AttributeError:
             raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = position
+        self.position = position
 
     def area(self):
         return self.__size**2
