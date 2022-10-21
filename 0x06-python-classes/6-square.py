@@ -12,7 +12,7 @@ class Square:
         """Initializing a square
         Args:
             size (int): size of a side of the square
-            position (tuple): tuple of two positive integer
+            position (int, int): tuple of two positive integer
         Returns: current square area
         """
         self.size = size
