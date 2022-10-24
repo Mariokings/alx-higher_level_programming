@@ -41,12 +41,10 @@ class Node:
 
 
 
-"""Define a class SinglyLinkedList"""
-
 class SinglyLinkedList:
     """Represents a SinglyLinkedList"""
 
-    def __init__(self, head):
+    def __init__(self):
         """Initializing a SinglyLinkedList"""
 
         self.__head = head
