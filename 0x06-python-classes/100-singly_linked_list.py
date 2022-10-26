@@ -15,30 +15,29 @@ class Node:
         self.data = data
         self.next_node = next_node
 
-        @property
-        def data(self):
-            """Get/set a new data"""
-            return self.__data
+    @property
+    def data(self):
+        """Get/set a new data"""
+        return self.__data
 
-        @data.setter
-        def data(self, value):
-            try:
-                assert type(value) == int
-            except AssertionError:
-                raise TypeError(data must be an integer)
-            self.__data = value
+    @data.setter
+    def data(self, value):
+        try:
+            assert type(value) == int
+        except AssertionError:
+            raise TypeError(data must be an integer)
+        self.__data = value
 
-            @property
-            def next_node(self):
-                """Get/set a new node"""
-                return self.__next_node
+    @property
+    def next_node(self):
+        """Get/set a new node"""
+        return self.__next_node
 
-            @next_node.setter
-            def next_node(self, value):
-                if not isinstance(value, Node) and value is not None:
-                    raise TypeError("next_node must be a Node object")
-                self.__next_node = next_node
-
+    @next_node.setter
+    def next_node(self, value):
+        if not isinstance(value, Node) and value is not None:
+            raise TypeError("next_node must be a Node object")
+        self.__next_node = next_node
 
 
 class SinglyLinkedList:
