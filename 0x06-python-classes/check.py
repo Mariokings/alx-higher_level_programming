@@ -1,94 +1,80 @@
 #!/usr/bin/python3
-"""Square class definition """
+
+"""Defines a class Node"""
 
 
-class Square:
-    """Represents a square class
-    Attributes:
-        size (int): size of a side of he square
-        position (tuple): tuple of two positive integer
-    """
-    def __init__(self, size=0, position=(0, 0)):
-        """Initializing a square
+class Node:
+    """Represents a Node"""
+
+    def __init__(self, data, next_node=None):
+        """Initializing a new Node
         Args:
-            size (int): size of a side of the square
-            position (tuple): tuple of two positive integer
-        Returns: current square area
+            data (int): value stored in a singly linked list
+            next_node (): new node in a singly linked list
         """
-        try:
-            assert type(size) == int
-        except AssertionError:
-            raise TypeError("size must be an integer")
-        try:
-            assert size >= 0
-        except AssertionError:
-            raise ValueError("size must be >= 0")
-        self.size = size
-        try:
-            assert type(position) == tuple and type(position[0]) == int
-        except AttributeError:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        try:
-            assert position[0] >= 0 and type(position[-1]) == int
-        except AttributeError:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        try:
-            assert position[-1] >= 0
-        except AttributeError:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        try:
-            assert len(position) == 2
-        except AttributeError:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.position = position
-
-    def area(self):
-        return self.__size**2
+        self.data = data
+        self.next_node = next_node
 
     @property
-    def size(self):
-        return self.__size
+    def data(self):
+        """Get/set a new data"""
+        return self.__data
 
-    @size.setter
-    def size(self, value):
+    @data.setter
+    def data(self, value):
         try:
             assert type(value) == int
         except AssertionError:
-            raise TypeError("size must be an integer")
-        try:
-            assert value >= 0
-        except AssertionError:
-            raise ValueError("size must be >= 0")
-        self.__size = value
-
-    def my_print(self):
-        if self.__size == 0:
-            print()
-        else:
-            for i in range(self.__size):
-                if self.__position[0] > 0:
-                    for j in range(self.__position[0]):
-                        print("_", end="")
-                for j in range(self.__size):
-                    print("#", end="")
-                print()
+            raise TypeError("data must be an integer")
+        self.__data = value
 
     @property
-    def position(self):
-        return self.__position
+    def next_node(self):
+        """Get/set a new node"""
+        return self.__next_node
 
-    @position.setter
-    def position(self, value):
-        try:
-            assert type(value) == tuple and type(value[0]) == int
-        except AttributeError:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        try:
-            assert value[0] >= 0 and type(value[-1]) == int and value[-1] >= 0
-        except AttributeError:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        try:
-            assert len(value) == 2
-        except AttributeError:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
+    @next_node.setter
+    def next_node(self, value):
+        if not isinstance(value, Node) and value is not None:
+            raise TypeError("next_node must be a Node object")
+        self.__next_node = next_node
+
+
+class SinglyLinkedList:
+    """Represents a SinglyLinkedList"""
+
+    def __init__(self):
+        """Initializing a SinglyLinkedList"""
+
+        self.__head = None
+
+    def sorted_insert(self, value):
+        """Insert a new Node to the SinglyLinkedList.
+            The node is inserted into the list at the correct
+            ordered numerical position.
+        Args:
+            value (Node): The new Node to insert.
+        """
+
+        new = Node(value)
+        if self.__head is None:
+            new.next_node = None
+            self.__head = new
+        elif self.__head.data > value:
+            new.next_node = self.__head
+            self.__head = new
+        else:
+            temp = self.__head
+            while temp.next_node is not None and temp.next_node.data < value:
+                temp = temp.next_node
+            new.next_node = temp.next_node
+            temp.next_node = new
+
+    def __str__(self):
+        """Define the print() representation of a SinglyLinkedList."""
+        values = []
+        temp = self.__head
+        while temp is not None:
+            values.append(str(temp.data))
+            temp = temp.next_node
+        return ('\n'.join(values))
